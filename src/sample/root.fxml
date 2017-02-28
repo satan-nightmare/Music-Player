@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" styleClass="background" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <MenuBar layoutX="4.0" layoutY="-2.0" prefHeight="30.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <ImageView fx:id="albumArt" fitHeight="310.0" fitWidth="310.0" layoutX="325.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="373.0" AnchorPane.topAnchor="55.0" />
+      <Slider fx:id="timeSlider" layoutX="346.0" layoutY="300.0" opacity="0.63" prefHeight="18.0" prefWidth="379.0" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="335.0" AnchorPane.rightAnchor="75.0" />
+      <Label fx:id="currentTime" layoutX="280.0" layoutY="401.0" AnchorPane.bottomAnchor="78.0" AnchorPane.leftAnchor="285.0" />
+      <Label fx:id="totalTime" layoutX="539.0" layoutY="301.0" AnchorPane.bottomAnchor="80.0" AnchorPane.rightAnchor="25.0" />
+      <Separator disable="true" layoutX="266.0" layoutY="32.0" opacity="0.21" orientation="VERTICAL" prefHeight="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="270.0" AnchorPane.topAnchor="37.0" />
+      <ListView fx:id="list" layoutX="33.0" layoutY="58.0" prefHeight="219.0" prefWidth="270.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="37.0">
+         <styleClass>
+            <String fx:value="background" />
+            <String fx:value="table-view" />
+         </styleClass></ListView>
+      <Button layoutX="155.0" layoutY="450.0" mnemonicParsing="false" onAction="#handleAdd" prefHeight="50.0" prefWidth="90.0" text="+" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
+      <Button layoutX="205.0" layoutY="450.0" mnemonicParsing="false" onAction="#handleRemove" prefHeight="50.0" prefWidth="90.0" text="-" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="90.0" />
+      <ImageView fx:id="playButton" fitHeight="65.0" fitWidth="65.0" layoutX="498.0" layoutY="425.0" onMouseClicked="#handlePlay" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" />
+      <ImageView fx:id="backward" fitHeight="65.0" fitWidth="65.0" layoutX="417.0" layoutY="418.0" onMouseClicked="#handlePrevious" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="410.0">
+         <image>
+            <Image url="@../../resources/images/backward.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="forward" fitHeight="65.0" fitWidth="65.0" layoutX="585.0" layoutY="425.0" onMouseClicked="#handleNext" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="150.0">
+         <image>
+            <Image url="@../../resources/images/forward.png" />
+         </image>
+      </ImageView>
+      <TextArea fx:id="lyrics" editable="false" layoutX="323.0" layoutY="75.0" prefHeight="275.0" prefWidth="418.0" styleClass="text-area" wrapText="true">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </TextArea>
+      <Button layoutX="160.0" layoutY="450.0" mnemonicParsing="false" onAction="#handleNewPlay" prefHeight="50.0" prefWidth="90.0" text="&gt;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="180.0" />
+      <Label fx:id="titleLabel" layoutX="328.0" layoutY="357.0" prefHeight="28.0" prefWidth="390.0" styleClass="label-bright" AnchorPane.bottomAnchor="100.0" />
+      <ImageView fx:id="shuffle" fitHeight="30.0" fitWidth="40.0" layoutX="335.0" layoutY="443.0" onMouseClicked="#handleShuffle" opacity="0.4" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="27.0" AnchorPane.leftAnchor="340.0">
+         <image>
+            <Image url="@../../resources/images/shuffle.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="repeat" fitHeight="30.0" fitWidth="40.0" layoutX="688.0" layoutY="443.0" onMouseClicked="#handleRepeat" opacity="0.4" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="27.0" AnchorPane.rightAnchor="82.0">
+         <image>
+            <Image url="@../../resources/images/repeat.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
